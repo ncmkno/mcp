@@ -27,10 +27,13 @@ You can download the demo video from the repository:
 - Click the **"Raw"** button to view the video directly in your browser
 - Or use the **"Download"** button to save the file
 
-### Option 3: Host on External Platform (Recommended)
-For better viewing experience, consider hosting the video on:
+### Option 3: GitHub Release (Recommended)
+The demo video is now available as a GitHub release:
+- **🎥 Demo Video**: [Download from GitHub Release](https://github.com/ncmkno/mcp/releases/download/v1.0.0/demo_auth_mcp.mp4)
+- **📋 Release Page**: [View Release Details](https://github.com/ncmkno/mcp/releases/tag/v1.0.0)
+
+For other hosting options, consider:
 - **YouTube**: Upload as unlisted video and embed
-- **GitHub Releases**: Create a release and attach the video
 - **Vimeo**: Upload and embed with privacy settings
 - **Loom**: Record and share with embed code
 
