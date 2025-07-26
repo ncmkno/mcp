@@ -16,10 +16,23 @@ A simple Model Context Protocol (MCP) implementation featuring a secure FastMCP 
 
 Watch the demo video below to see the MCP server in action with authentication:
 
-<video width="100%" controls>
-  <source src="backend/assets/demo_auth_mcp.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+### Option 1: Download and View Locally
+You can download the demo video from the repository:
+- **Video File**: [`backend/assets/demo_auth_mcp.mp4`](backend/assets/demo_auth_mcp.mp4) (2.83 MB)
+- **Right-click** the link above and select "Save link as..." to download
+- **Open** the downloaded file in your video player
+
+### Option 2: View on GitHub
+- Navigate to [`backend/assets/demo_auth_mcp.mp4`](backend/assets/demo_auth_mcp.mp4) in the repository
+- Click the **"Raw"** button to view the video directly in your browser
+- Or use the **"Download"** button to save the file
+
+### Option 3: Host on External Platform (Recommended)
+For better viewing experience, consider hosting the video on:
+- **YouTube**: Upload as unlisted video and embed
+- **GitHub Releases**: Create a release and attach the video
+- **Vimeo**: Upload and embed with privacy settings
+- **Loom**: Record and share with embed code
 
 *Note: The demo shows the authentication flow when using the MCP tools. The video demonstrates how users authenticate through the frontend and then interact with the MCP server tools for note management.*
 
