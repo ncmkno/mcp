@@ -40,6 +40,113 @@ The demo video is now available as a GitHub release:
 - **Note Management**: Shows creating and retrieving notes through the MCP interface
 - **Real-time Interaction**: Demonstrates the seamless integration between frontend auth and backend MCP tools
 
+## 🏗️ System Architecture
+
+The following diagram illustrates the complete architecture and data flow of the Kino MCP Project:
+
+```mermaid
+graph TB
+    %% External Services
+    subgraph "External Services"
+        STYTCH[Stytch Auth Service]
+        GOOGLE[Google OAuth]
+        AI_ASSISTANT["AI Assistant<br/>(Claude, GPT, etc.)"]
+    end
+
+    %% Frontend Layer
+    subgraph "Frontend (React + Vite)"
+        UI[React UI Components]
+        AUTH_UI[Stytch Auth UI]
+        ROUTER[React Router]
+    end
+
+    %% Backend Layer
+    subgraph "Backend (FastMCP Server)"
+        MCP_SERVER[FastMCP Server]
+        AUTH_PROVIDER[BearerAuthProvider]
+        NOTE_TOOLS["MCP Tools<br/>• get_my_notes<br/>• add_note"]
+        MIDDLEWARE[CORS & Auth Middleware]
+    end
+
+    %% Database Layer
+    subgraph "Database"
+        SQLITE[(SQLite Database)]
+        NOTES_TABLE["Notes Table<br/>• id<br/>• user_id<br/>• content"]
+    end
+
+    %% Development Tools
+    subgraph "Development & Deployment"
+        NGROK[ngrok Tunnel]
+        UV[uv Package Manager]
+        NPM[npm Package Manager]
+    end
+
+    %% User Flow
+    USER[👤 User] --> UI
+    USER --> AUTH_UI
+
+    %% Authentication Flow
+    AUTH_UI --> STYTCH
+    AUTH_UI --> GOOGLE
+    STYTCH --> AUTH_UI
+    GOOGLE --> AUTH_UI
+
+    %% Frontend to Backend
+    UI --> MCP_SERVER
+    AUTH_UI --> MCP_SERVER
+
+    %% Backend Processing
+    MCP_SERVER --> AUTH_PROVIDER
+    MCP_SERVER --> MIDDLEWARE
+    MCP_SERVER --> NOTE_TOOLS
+
+    %% Database Operations
+    NOTE_TOOLS --> SQLITE
+    SQLITE --> NOTES_TABLE
+
+    %% AI Assistant Integration
+    AI_ASSISTANT --> MCP_SERVER
+    MCP_SERVER --> AI_ASSISTANT
+
+    %% Development Tools
+    MCP_SERVER --> NGROK
+    UV --> MCP_SERVER
+    NPM --> UI
+
+    %% Styling
+    classDef external fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef frontend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef backend fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef database fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef devtools fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef user fill:#f1f8e9,stroke:#33691e,stroke-width:2px
+
+    class STYTCH,GOOGLE,AI_ASSISTANT external
+    class UI,AUTH_UI,ROUTER frontend
+    class MCP_SERVER,AUTH_PROVIDER,NOTE_TOOLS,MIDDLEWARE backend
+    class SQLITE,NOTES_TABLE database
+    class NGROK,UV,NPM devtools
+    class USER user
+```
+
+### Architecture Overview
+
+The system follows a modern microservices architecture with clear separation of concerns:
+
+1. **Frontend Layer**: React application with Stytch authentication UI
+2. **Backend Layer**: FastMCP server with OAuth 2.0 authentication
+3. **Database Layer**: SQLite with SQLAlchemy ORM
+4. **External Services**: Stytch for authentication, Google OAuth integration
+5. **AI Integration**: MCP tools accessible to AI assistants
+6. **Development Tools**: ngrok for tunneling, uv/npm for package management
+
+### Data Flow
+
+1. **Authentication Flow**: Users authenticate via Stytch/Google OAuth
+2. **MCP Tool Access**: AI assistants access authenticated MCP tools
+3. **Note Operations**: Create and retrieve user-specific notes
+4. **Database Persistence**: SQLite stores user notes with proper indexing
+
 ## 🚀 Features
 
 ### Backend (FastMCP Server)
