@@ -32,11 +32,6 @@ The demo video is now available as a GitHub release:
 - **🎥 Demo Video**: [Download from GitHub Release](https://github.com/ncmkno/mcp/releases/download/v1.0.0/demo_auth_mcp.mp4)
 - **📋 Release Page**: [View Release Details](https://github.com/ncmkno/mcp/releases/tag/v1.0.0)
 
-For other hosting options, consider:
-- **YouTube**: Upload as unlisted video and embed
-- **Vimeo**: Upload and embed with privacy settings
-- **Loom**: Record and share with embed code
-
 *Note: The demo shows the authentication flow when using the MCP tools. The video demonstrates how users authenticate through the frontend and then interact with the MCP server tools for note management.*
 
 ### Demo Features
